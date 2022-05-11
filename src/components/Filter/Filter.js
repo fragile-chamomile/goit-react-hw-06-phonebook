@@ -7,7 +7,7 @@ const Filter = () => {
   const filterSelector = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
 
-  const changeFilter = e => dispatch(filter(e.currentTarget.value));
+  const changeFilter = e => dispatch(filter(e.target.value));
 
   return (
     <Label>

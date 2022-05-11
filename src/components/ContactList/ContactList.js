@@ -8,18 +8,14 @@ const ContactList = () => {
   const contacts = useSelector(state => state.contacts.items);
 
   // Фильтрация списка контактов
-  const getContactItem = () => {
-    const normalizedFilter = filterSelector.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
-  };
-
-  getContactItem();
+  const normalizedFilter = filterSelector.toLowerCase();
+  const getContactItem = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(normalizedFilter)
+  );
 
   return (
     <List>
-      {contacts.map(({ id, name, number }) => (
+      {getContactItem.map(({ name, number, id }) => (
         <ContactItem key={id} name={name} number={number} id={id} />
       ))}
     </List>
